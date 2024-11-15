@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Asistencias</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- SDK de Firebase -->
+
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
   <script src="app.js" defer></script>
 </head>
 
-
 <body>
-
   
   <div class="container">
     
-    <!-- Formulario de Inicio de Sesión -->
+    <!-- inicio de sesion -->
     
     <div id="login-section">
       <h1>¡BIENVENIDO!</h1>
@@ -29,7 +27,7 @@
         <p id="login-error" style="color:red;"></p>
     </div>  
 
-    <!-- Menú Principal (Visible solo después de iniciar sesión) -->
+    <!-- menú principal -->
     <div id="menu-section" style="display: none;">
       <h1>OPCIONES</h1>
       <button onclick="showSection('estudiantes')">Estudiantes</button>
@@ -38,23 +36,23 @@
       <button onclick="logout()">Cerrar sesión</button>
     </div>
 
-    <!-- Sección de Estudiantes -->
+    <!-- estudiantes -->
     <div id="estudiantes-section" class="content-section" style="display: none;">
       <h2>LISTA DE ESTUDIANTES</h2>
       <ul id="estudiantes-list"></ul>
       <button onclick="goBack()">Regresar</button>
     </div>
 
-    <!-- Sección de Asistencia -->
+    <!-- asistencia -->
     <div id="asistencia-section" class="content-section" style="display: none;">
       <h2>REGISTRO DE ASISTENCIA</h2>
       <p>Aquí se mostrará la asistencia registrada.</p>
       <button onclick="goBack()">Regresar</button>
     </div>
 
-    <!-- Sección de Configuración de Horario -->
+    <!-- horario -->
     <div id="config-horario-section" class="content-section" style="display: none;">
-      <h2>Configurar Horario de Entrada</h2>
+      <h2>Configurar Horario de entrada</h2>
       <input type="time" id="horario-entrada">
       <button onclick="saveHorario()">Guardar</button>
       <button onclick="goBack()">Regresar</button>
@@ -62,7 +60,7 @@
   </div>
 
   <footer class="footer-banner">
-    Proyecto realizado para el curso de Arquitectura de Computadoras
+    Proyecto realizado para el curso de Arquitectura de Computadoras - GRUPO 10
   </footer>
 
 </body>
