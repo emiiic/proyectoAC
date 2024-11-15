@@ -1,5 +1,4 @@
-/* Reset */
-* {
+  {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +9,7 @@
     background-image: url('images/fisi.jpg'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fija el fondo para que no se mueva al hacer scroll */
+    background-attachment: fixed; 
     color: #333;
     display: flex;
     justify-content: center;
@@ -23,9 +22,9 @@
   
 
   
-/* Fondo de la página */
+/* fondo de la pag */
 .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para la caja principal */
+    background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 10px;
     padding: 30px;
     width: 100%;
@@ -67,8 +66,6 @@
     color: red;
   }
   
-  
-  
   input {
     width: 100%;
     padding: 10px;
@@ -92,7 +89,7 @@
     width: 100%;
     max-width: 800px;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente para la sección */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     margin: 0 auto;
