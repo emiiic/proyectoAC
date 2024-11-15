@@ -1,4 +1,3 @@
-// Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyAs9p5O1xIMr9xhjZtstlNZXvjT5b3W08o",
     authDomain: "esp32cam-e79b2.firebaseapp.com",
@@ -8,12 +7,11 @@ const firebaseConfig = {
     appId: "1:73119737410:web:320905d6a60b01ad43efdb"
   };
   
-  // Inicializar Firebase
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
   
-  // Función de inicio de sesión
+  //inicio de sesión
   function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -28,7 +26,7 @@ const firebaseConfig = {
       });
   }
   
-  // Función de cierre de sesión
+  //cierre de sesión
   function logout() {
     auth.signOut().then(() => {
       document.getElementById('login-section').style.display = 'block';
@@ -37,7 +35,7 @@ const firebaseConfig = {
     });
   }
   
-  // Mostrar una sección específica
+  //para mostrar una sección específica
   function showSection(section) {
     hideSections();
     document.getElementById(`${section}-section`).style.display = 'block';
@@ -47,12 +45,12 @@ const firebaseConfig = {
     }
   }
   
-  // Ocultar todas las secciones
+  //ocultar todas las secciones
   function hideSections() {
     document.querySelectorAll('.content-section').forEach(section => section.style.display = 'none');
   }
   
-  // Función para cargar los estudiantes desde Firestore
+  //cargar los estudiantes desde Firestore
   function loadEstudiantes() {
     const estudiantesList = document.getElementById('estudiantes-list');
     estudiantesList.innerHTML = '';
@@ -67,31 +65,31 @@ const firebaseConfig = {
     });
   }
   
-  // Volver al menú principal
+  //volver al menú principal
   function goBack() {
     hideSections();
     document.getElementById('menu-section').style.display = 'block';
   }
   
-  // Guardar horario de entrada
+  //guardar horario de entrada
   function saveHorario() {
     const horario = document.getElementById('horario-entrada').value;
     alert(`Horario guardado: ${horario}`);
   }
   
-  // Mostrar una sección específica y ocultar el menú
+  //mostrar una sección específica y ocultar el menú
 function showSection(section) {
-    hideSections(); // Oculta todas las secciones
-    document.getElementById(`${section}-section`).style.display = 'block'; // Muestra la sección deseada
-    document.getElementById('menu-section').style.display = 'none'; // Oculta el menú principal
+    hideSections(); 
+    document.getElementById(`${section}-section`).style.display = 'block';
+    document.getElementById('menu-section').style.display = 'none'; 
     
     if (section === 'estudiantes') {
-      loadEstudiantes(); // Cargar la lista de estudiantes solo si se selecciona la sección correspondiente
+      loadEstudiantes();
     }
   }
   
-  // Volver al menú principal
+  // volver al menú principal
   function goBack() {
-    hideSections(); // Oculta todas las secciones
-    document.getElementById('menu-section').style.display = 'block'; // Muestra el menú principal
+    hideSections(); 
+    document.getElementById('menu-section').style.display = 'block'; 
   }
