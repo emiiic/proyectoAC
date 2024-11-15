@@ -15,13 +15,13 @@
   
   <div class="contenedor">
     <!-- iniciar sesión -->
-    <div id="seccion-inicio-sesion">
+    <div id="iniciar-sesion">
       <h1>¡BIENVENIDO!</h1>
         <h3>Iniciar sesión</h3>
-        <input type="email" id="correo" placeholder="Correo electrónico">
-        <input type="password" id="contrasena" placeholder="Contraseña">
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <input type="password" id="contraseña" placeholder="Contraseña">
         <button onclick="iniciarSesion()">Iniciar sesión</button>
-        <p id="error-inicio-sesion" style="color:red;"></p>
+        <p id="login-error" style="color:red;"></p>
     </div>  
 
     <!-- menú principal -->
@@ -37,22 +37,22 @@
     <div id="seccion-estudiantes" class="seccion-contenido" style="display: none;">
       <h2>LISTA DE ESTUDIANTES</h2>
       <ul id="lista-estudiantes"></ul>
-      <button onclick="regresar()">Regresar</button>
+      <button onclick="volver()">Regresar</button>
     </div>
 
     <!-- Asistencia -->
     <div id="seccion-asistencia" class="seccion-contenido" style="display: none;">
       <h2>REGISTRO DE ASISTENCIA</h2>
       <p>Aquí se mostrará la asistencia registrada.</p>
-      <button onclick="regresar()">Regresar</button>
+      <button onclick="volver()">Regresar</button>
     </div>
 
     <!-- Horario -->
-    <div id="seccion-config-horario" class="seccion-contenido" style="display: none;">
-      <h2>Configurar Horario de Entrada</h2>
+    <div id="seccion-configurar-horario" class="seccion-contenido" style="display: none;">
+      <h2>Configurar horario de entrada</h2>
       <input type="time" id="horario-entrada">
       <button onclick="guardarHorario()">Guardar</button>
-      <button onclick="regresar()">Regresar</button>
+      <button onclick="volver()">Regresar</button>
     </div>
   </div>
 
@@ -61,5 +61,6 @@
   </footer>
 
 </body>
+
 </html>
 
