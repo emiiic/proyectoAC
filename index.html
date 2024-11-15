@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SISTEMA DE ASISTENCIA CON RECONOCIMIENTO FACIAL</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- SDK de Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <div class="contenedor">
+    
+    <!--iniciar sesion-->
+        <div id="login-seccion">
+      <h1>¡BIENVENIDO!</h1>
+        <h3>Iniciar sesión</h3>
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="login()">Iniciar sesión</button>
+        <p id="login-error" style="color:red;"></p>
+    </div>  
+
+    <!-- menú principal -->
+    <div id="menu-seccion" style="display: none;">
+      <h1>OPCIONES</h1>
+      <button onclick="mostrarSeccion('estudiantes')">Estudiantes</button>
+      <button onclick="mostrarSeccion('asistencia')">Asistencia</button>
+      <button onclick="mostrarSeccion('config-horario')">Configurar horario</button>
+      <button onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+
+    <!-- seccion de estudiantes -->
+    <div id="estudiantes-seccion" class="contenido-seccion" style="display: none;">
+      <h2>LISTA DE ESTUDIANTES</h2>
+      <ul id="estudiantes-lista"></ul>
+      <button onclick="regresar()">Regresar</button>
+    </div>
+
+    <!-- seccion de asistencia -->
+    <div id="asistencia-seccion" class="contenido-seccion" style="display: none;">
+      <h2>REGISTRO DE ASISTENCIA</h2>
+      <p>Aquí se mostrará la asistencia registrada.</p>
+      <button onclick="regresar()">Regresar</button>
+    </div>
+
+    <!-- seccion de configuracion de horario -->
+    <div id="config-horario-seccion" class="contenido-seccion" style="display: none;">
+      <h2>Configurar horario de entrada</h2>
+      <input type="time" id="horario-entrada">
+      <button onclick="guardarHorario()">Guardar</button>
+      <button onclick="regresar()">Regresar</button>
+    </div>
+  </div>
+
+  <footer class="pie-banner">
+    Proyecto realizado para el curso de Arquitectura de Computadoras - GRUPO 10
+  </footer>
+
+</body>
+
+</html>
