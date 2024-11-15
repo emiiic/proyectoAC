@@ -1,11 +1,13 @@
-  {
+/* Reinicio de márgenes y padding */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'trebuchet ms', 'trebuchet ms';
+}
+
+/* Estilo general */
+body {
+    font-family: 'Trebuchet MS', sans-serif;
     background-image: url('images/fisi.jpg'); 
     background-size: cover;
     background-position: center;
@@ -18,33 +20,30 @@
     min-height: 100vh;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
-  }
-  
+}
 
-  
-/* fondo de la pag */
-.container {
+/* Contenedor principal */
+.contenedor {
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 10px;
     padding: 30px;
     width: 100%;
     max-width: 500px;
     text-align: center;
-  }
-  
-  h1 {
+}
+
+h1 {
     color: #2a4d73;
     margin-bottom: 20px;
     text-align: center;
-  }
-  
-  h2 {
+}
+
+h2 {
     color: #2a4d73;
     margin-bottom: 20px;
-  }
-  
-  
-  button {
+}
+
+button {
     margin-top: 10px;
     padding: 12px;
     width: 100%;
@@ -55,67 +54,38 @@
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #1d3557;
-  }
-  
-  #login-error {
+}
+
+#error-inicio-sesion {
     margin-top: 10px;
     color: red;
-  }
-  
-  input {
+}
+
+input {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
-  }
-  
-  .content-section {
-    display: none;
-  }
-  
-  .content-section h2 {
-    color: #1d3557;
-    margin-bottom: 10px;
-  }
-  
-/* Estudiantes */
-#estudiantes-section {
-    display: block;
-    width: 100%;
-    max-width: 800px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-  }
-  
-  #estudiantes-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  #estudiantes-list li {
-    margin: 10px 0;
-    padding: 12px;
-    background-color: #e4f1fe;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  .footer-banner {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #1d3557;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.9em;
 }
+
+.seccion-contenido {
+    display: none;
+}
+
+.pie-pagina {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1d3557;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+}
+
 
