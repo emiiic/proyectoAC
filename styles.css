@@ -7,7 +7,7 @@
   
   body {
     font-family: 'trebuchet ms', 'trebuchet ms';
-    background-image: url('https://github.com/emiiic/proyectoAC/blob/main/images/fisi.jpg'); 
+    background-image: url('images/fisi.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Fija el fondo para que no se mueva al hacer scroll */
