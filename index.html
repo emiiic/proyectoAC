@@ -1,120 +1,65 @@
-  {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Asistencias</title>
+  <link rel="stylesheet" href="styles.css">
+ 
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
   
-  body {
-    font-family: 'trebuchet ms', 'trebuchet ms';
-    background-image: url('images/fisi.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; 
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
+  <div class="container">
+    <!-- iniciar sesión -->
+    <div id="login-section">
+      <h1>¡BIENVENIDO!</h1>
+        <h3>Iniciar sesión</h3>
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="login()">Iniciar sesión</button>
+        <p id="login-error" style="color:red;"></p>
+    </div>  
 
-  
-/* fondo de la pag */
-.container {
-    background-color: rgba(255, 255, 255, 0.8); 
-    border-radius: 10px;
-    padding: 30px;
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #2a4d73;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: #2a4d73;
-    margin-bottom: 20px;
-  }
-  
-  
-  button {
-    margin-top: 10px;
-    padding: 12px;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #457b9d;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #1d3557;
-  }
-  
-  #login-error {
-    margin-top: 10px;
-    color: red;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .content-section {
-    display: none;
-  }
-  
-  .content-section h2 {
-    color: #1d3557;
-    margin-bottom: 10px;
-  }
-  
-/* Estudiantes */
-#estudiantes-section {
-    display: block;
-    width: 100%;
-    max-width: 800px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-  }
-  
-  #estudiantes-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  #estudiantes-list li {
-    margin: 10px 0;
-    padding: 12px;
-    background-color: #e4f1fe;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  .footer-banner {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #1d3557;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.9em;
-}
+    <!-- menú principal -->
+    <div id="menu-section" style="display: none;">
+      <h1>OPCIONES</h1>
+      <button onclick="showSection('estudiantes')">Estudiantes</button>
+      <button onclick="showSection('asistencia')">Asistencia</button>
+      <button onclick="showSection('config-horario')">Configurar horario</button>
+      <button onclick="logout()">Cerrar sesión</button>
+    </div>
+
+    <!-- Estudiantes -->
+    <div id="estudiantes-section" class="content-section" style="display: none;">
+      <h2>LISTA DE ESTUDIANTES</h2>
+      <ul id="estudiantes-list"></ul>
+      <button onclick="goBack()">Regresar</button>
+    </div>
+
+    <!-- Asistencia -->
+    <div id="asistencia-section" class="content-section" style="display: none;">
+      <h2>REGISTRO DE ASISTENCIA</h2>
+      <p>Aquí se mostrará la asistencia registrada.</p>
+      <button onclick="goBack()">Regresar</button>
+    </div>
+
+    <!-- Horario -->
+    <div id="config-horario-section" class="content-section" style="display: none;">
+      <h2>Configurar Horario de Entrada</h2>
+      <input type="time" id="horario-entrada">
+      <button onclick="saveHorario()">Guardar</button>
+      <button onclick="goBack()">Regresar</button>
+    </div>
+  </div>
+
+  <footer class="footer-banner">
+    Proyecto realizado para el curso de Arquitectura de Computadoras
+  </footer>
+
+</body>
+
+</html>
