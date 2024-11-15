@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de Asistencias</title>
+  <title>SISTEMA DE ASISTENCIA CON RECONOCIMIENTO FACIAL</title>
   <link rel="stylesheet" href="styles.css">
  
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
@@ -13,53 +13,53 @@
 </head>
 <body>
   
-  <div class="container">
+  <div class="contenedor">
     <!-- iniciar sesión -->
-    <div id="login-section">
+    <div id="seccion-inicio-sesion">
       <h1>¡BIENVENIDO!</h1>
         <h3>Iniciar sesión</h3>
-        <input type="email" id="email" placeholder="Correo electrónico">
-        <input type="password" id="password" placeholder="Contraseña">
-        <button onclick="login()">Iniciar sesión</button>
-        <p id="login-error" style="color:red;"></p>
+        <input type="email" id="correo" placeholder="Correo electrónico">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <button onclick="iniciarSesion()">Iniciar sesión</button>
+        <p id="error-inicio-sesion" style="color:red;"></p>
     </div>  
 
     <!-- menú principal -->
-    <div id="menu-section" style="display: none;">
+    <div id="seccion-menu" style="display: none;">
       <h1>OPCIONES</h1>
-      <button onclick="showSection('estudiantes')">Estudiantes</button>
-      <button onclick="showSection('asistencia')">Asistencia</button>
-      <button onclick="showSection('config-horario')">Configurar horario</button>
-      <button onclick="logout()">Cerrar sesión</button>
+      <button onclick="mostrarSeccion('estudiantes')">Estudiantes</button>
+      <button onclick="mostrarSeccion('asistencia')">Asistencia</button>
+      <button onclick="mostrarSeccion('config-horario')">Configurar horario</button>
+      <button onclick="cerrarSesion()">Cerrar sesión</button>
     </div>
 
     <!-- Estudiantes -->
-    <div id="estudiantes-section" class="content-section" style="display: none;">
+    <div id="seccion-estudiantes" class="seccion-contenido" style="display: none;">
       <h2>LISTA DE ESTUDIANTES</h2>
-      <ul id="estudiantes-list"></ul>
-      <button onclick="goBack()">Regresar</button>
+      <ul id="lista-estudiantes"></ul>
+      <button onclick="regresar()">Regresar</button>
     </div>
 
     <!-- Asistencia -->
-    <div id="asistencia-section" class="content-section" style="display: none;">
+    <div id="seccion-asistencia" class="seccion-contenido" style="display: none;">
       <h2>REGISTRO DE ASISTENCIA</h2>
       <p>Aquí se mostrará la asistencia registrada.</p>
-      <button onclick="goBack()">Regresar</button>
+      <button onclick="regresar()">Regresar</button>
     </div>
 
     <!-- Horario -->
-    <div id="config-horario-section" class="content-section" style="display: none;">
+    <div id="seccion-config-horario" class="seccion-contenido" style="display: none;">
       <h2>Configurar Horario de Entrada</h2>
       <input type="time" id="horario-entrada">
-      <button onclick="saveHorario()">Guardar</button>
-      <button onclick="goBack()">Regresar</button>
+      <button onclick="guardarHorario()">Guardar</button>
+      <button onclick="regresar()">Regresar</button>
     </div>
   </div>
 
-  <footer class="footer-banner">
-    Proyecto realizado para el curso de Arquitectura de Computadoras
+  <footer class="pie-pagina">
+    Proyecto realizado para el curso de Arquitectura de Computadoras - GRUPO 10
   </footer>
 
 </body>
-
 </html>
+
