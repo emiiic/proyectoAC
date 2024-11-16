@@ -54,17 +54,70 @@ const firebaseConfig = {
   function cargarEstudiantes() {
     const listaEstudiantes = document.getElementById('estudiantes-lista');
     listaEstudiantes.innerHTML = '';
-    
+  
     db.collection('Estudiantes').get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const estudiante = doc.data();
         const li = document.createElement('li');
-        li.textContent = `${estudiante.nombre} - ${estudiante.codigo}`;
+        li.textContent = `${estudiante.apellidos} ${estudiante.nombres} - ${estudiante.codigo}`;
         listaEstudiantes.appendChild(li);
       });
     });
   }
-  
+
+  // Registrar un nuevo estudiante en Firestore
+function registrarEstudiante() {
+  const nombres = document.getElementById('nombres').value;
+  const apellidos = document.getElementById('apellidos').value;
+  const codigo = document.getElementById('codigo').value;
+
+  if (nombres && apellidos && codigo) {
+    db.collection('Estudiantes').add({
+      nombres,
+      apellidos,
+      codigo
+    }).then(() => {
+      document.getElementById('registro-mensaje').textContent = "Estudiante registrado con éxito.";
+      setTimeout(() => document.getElementById('registro-mensaje').textContent = "", 3000);
+    }).catch(() => {
+      document.getElementById('registro-mensaje').textContent = "Error al registrar el estudiante.";
+    });
+  } else {
+    document.getElementById('registro-mensaje').textContent = "Por favor, completa todos los campos.";
+  }
+}
+
+// buscar estudiante por código
+function buscarEstudiante() {
+  const codigoBuscado = document.getElementById('buscador-codigo').value.trim();
+  const listaEstudiantes = document.getElementById('estudiantes-lista');
+  listaEstudiantes.innerHTML = ''; // Limpiar resultados anteriores
+
+  if (codigoBuscado) {
+    // Buscar en Firestore el estudiante con el código específico
+    db.collection('Estudiantes').where('codigo', '==', codigoBuscado).get()
+      .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+          const li = document.createElement('li');
+          li.textContent = `No se encontró ningún estudiante con el código: ${codigoBuscado}`;
+          listaEstudiantes.appendChild(li);
+        } else {
+          querySnapshot.forEach((doc) => {
+            const estudiante = doc.data();
+            const li = document.createElement('li');
+            li.textContent = `${estudiante.apellidos} ${estudiante.nombres} - ${estudiante.codigo}`;
+            listaEstudiantes.appendChild(li);
+          });
+        }
+      })
+      .catch(error => {
+        console.error("Error al buscar el estudiante: ", error);
+      });
+  } else {
+    alert("Por favor, ingresa un código para buscar.");
+  }
+}
+
   // volver al menú principal
   function regresar() {
     ocultarSecciones();
