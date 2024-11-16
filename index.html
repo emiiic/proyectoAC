@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SISTEMA DE ASISTENCIA CON RECONOCIMIENTO FACIAL</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- SDK de Firebase -->
+  
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
@@ -15,7 +15,6 @@
 <body>
 
     <div class="contenedor">
-    
     <!--iniciar sesion-->
         <div id="login-seccion">
       <h1>¡BIENVENIDO!</h1>
@@ -30,6 +29,7 @@
     <div id="menu-seccion" style="display: none;">
       <h1>OPCIONES</h1>
       <button onclick="mostrarSeccion('estudiantes')">Estudiantes</button>
+      <button onclick="mostrarSeccion('registro-estudiantes')">Registrar estudiante</button>
       <button onclick="mostrarSeccion('asistencia')">Asistencia</button>
       <button onclick="mostrarSeccion('config-horario')">Configurar horario</button>
       <button onclick="cerrarSesion()">Cerrar sesión</button>
@@ -37,8 +37,22 @@
 
     <!-- seccion de estudiantes -->
     <div id="estudiantes-seccion" class="contenido-seccion" style="display: none;">
-      <h2>LISTA DE ESTUDIANTES</h2>
+      <h2>ESTUDIANTES</h2>
+      <input type="text" id="buscador-codigo" placeholder="Buscar por código">
+      <button onclick="buscarEstudiante()">Buscar</button>
       <ul id="estudiantes-lista"></ul>
+      <button onclick="regresar()">Regresar</button>
+    </div>
+    
+
+     <!-- seccion para registrar un estudiante -->
+     <div id="registro-estudiantes-seccion" class="contenido-seccion" style="display: none;">
+      <h2>REGISTRAR ESTUDIANTE</h2>
+      <input type="text" id="nombres" placeholder="Nombres">
+      <input type="text" id="apellidos" placeholder="Apellidos">
+      <input type="text" id="codigo" placeholder="Código">
+      <button onclick="registrarEstudiante()">Registrar estudiante</button>
+      <p id="registro-mensaje" style="color: rgb(21, 46, 83);"></p>
       <button onclick="regresar()">Regresar</button>
     </div>
 
