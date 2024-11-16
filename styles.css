@@ -79,17 +79,6 @@
     color: #1d3557;
     margin-bottom: 10px;
   }
-
-#estudiantes-seccion {
-    display: block;
-    width: 100%;
-    max-width: 800px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-  }
   
   #estudiantes-lista {
     list-style-type: none;
@@ -104,6 +93,7 @@
     border-radius: 5px;
     border: 1px solid #ddd;
   }
+ 
   .pie-banner {
   position: fixed;
   bottom: 0;
@@ -114,4 +104,3 @@
   padding: 10px 0;
   font-size: 0.9em;
 }
-
